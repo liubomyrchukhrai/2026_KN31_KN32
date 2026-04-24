@@ -1,5 +1,7 @@
+import unittest
+
 def add(a, b):
-    return a + b
+    return a - b
 
 def subtract(a, b):
     return a - b
@@ -12,9 +14,30 @@ def divide(a, b):
         return "Помилка: ділення на нуль!"
     return a / b
 
+# Новий метод: Піднесення до степеня
 def power(a, b):
     return a ** b
 
+# --- Клас з юніт-тестами ---
+class TestCalculator(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(2, 3), 5)
+    
+    def test_subtract(self):
+        self.assertEqual(subtract(10, 4), 6)
+        
+    def test_multiply(self):
+        self.assertEqual(multiply(3, 3), 9)
+        
+    def test_divide(self):
+        self.assertEqual(divide(10, 2), 5)
+        self.assertEqual(divide(5, 0), "Помилка: ділення на нуль!")
+        
+    def test_power(self):
+        self.assertEqual(power(2, 3), 8)
+        self.assertEqual(power(5, 0), 1)
+
+# --- Логіка інтерфейсу ---
 def main():
     print("Оберіть операцію:")
     print("1 - Додавання")
@@ -25,7 +48,7 @@ def main():
 
     choice = input("Ваш вибір (1/2/3/4/5): ")
 
-    #try:
+    try:
         num1 = float(input("Введіть перше число: "))
         num2 = float(input("Введіть друге число: "))
 
@@ -45,4 +68,8 @@ def main():
         print("Помилка: введіть коректні числа!")
 
 if __name__ == "__main__":
+    # Якщо ви хочете запустити ТЕСТИ, розкоментуйте рядок нижче і закоментуйте main()
+    # unittest.main() 
+    
+    # Зараз запускається звичайна програма
     main()
