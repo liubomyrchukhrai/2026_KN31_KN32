@@ -25,7 +25,7 @@ def main():
 
     choice = input("Ваш вибір (1/2/3/4/5): ")
 
-    try:
+    #try:
         num1 = float(input("Введіть перше число: "))
         num2 = float(input("Введіть друге число: "))
 
